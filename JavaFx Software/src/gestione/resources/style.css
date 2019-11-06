@@ -1,0 +1,87 @@
+/*
+    Created on : 20-dic-2018, 14.28.48
+    Author     : Kamil
+*/
+
+* {
+    -fx-primary-color: #EBEFF2;/*BG DEFAULT color*/
+    -fx-secondary-color: #F4F8FB;/*BG SELECTED color*/
+    -fx-nonselected-color: #737478;/*GRAY text color*/
+    -fx-selected-color: #29B1F2;/*BLUE text-color & rippler-color*/
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('Roboto-Condensed.ttf');
+}
+@font-face {
+    font-family: Raleway;
+    src: url('Raleway-ExtraBold.ttf');
+}
+@font-face {
+    font-family: Moon;
+    src: url('Moon2.0-Regular.otf');
+}
+
+/***TABPANE STYLING***/
+.tab {
+    -fx-pref-height: 200;
+    -fx-pref-width: 75;
+    -fx-background-color: -fx-primary-color;
+}
+.tab-header-background {
+    -fx-background-color: -fx-primary-color;
+}
+
+/*tab-label styling*/
+.tab-label {
+    -fx-rotate: 90;
+}
+
+/*effetto tab selected*/
+.tab-selected-line {
+    -fx-background-color: -fx-selected-color;
+}
+.jfx-tab-pane .tab-header-area .jfx-rippler {
+    -jfx-rippler-fill: none;/*OLD ORIGINAL: #d5d8da*/ /* -fx-primary-color */
+
+}
+
+/*.tab:selected, .tab:selected .tab-label {
+    -fx-background-color: -fx-secondary-color;
+}
+.tab:selected .tab-label {
+    -fx-text-fill: -fx-selected-color ;
+}*/
+
+.cursor_on_tab {
+    -fx-cursor: hand;
+}
+
+/***OTHER STYLING***/
+.addFontRoboto {
+    -fx-font-family: 'Roboto Cn';
+    -fx-font-size: 10.3pt;
+    -fx-text-fill: black;
+    -fx-font-weight: normal;
+}
+
+.addFontRaleway {
+    -fx-font-family: 'Raleway ExtraBold';
+    -fx-font-size: 9.3pt;
+    -fx-text-fill: black;
+    -fx-font-weight: normal;
+}
+
+.addFontMoon {
+    -fx-font-family: 'Moon 2.0';
+    -fx-font-size: 10.8pt;
+    -fx-text-fill: #0095ff; /* #0095ff *//* linear-gradient(135deg, #00b2ff 0%,#018ed0 50%,#0067bc 100%) */
+    -fx-font-weight: bold;
+}
+
+/* gradients */
+
+/*.linear-gradient-blue {
+  -fx-background-color: linear-gradient(135deg, rgba(0,178,255,1) 0%, rgba(0,143,209,1) 50%, rgba(0,122,179,1) 100%);
+}*/

@@ -1,0 +1,186 @@
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+* {
+    margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Navbar ]*/
+.mainmenu-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 10px 20px 15px 20px;
+    background: transparent;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    display: block;
+    margin: 0;
+}
+
+.navbar-header {
+    margin: 0;
+    float: left;
+    display: flex;
+}
+
+p {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+/*---------------------------------------------*/
+
+.mainmenu-area .right-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.right-button a.logout, .right-button a.panoramica-dati, .right-button a.attivita {
+    color: #ffffff;
+    padding: 10px 40px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.right-button a.panoramica-dati {
+    right: 470px;
+}
+
+.right-button a.attivita {
+    right: 300px;
+}
+
+.right-button a.logout {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.mainmenu-area .right-button a:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #768ede;
+    text-decoration: none;
+    outline: none;
+}
+@media(max-width: 1090px){
+    .right-button a.panoramica-dati {
+        display: flex;
+        margin-top: 10px;
+        right: 165px;
+        top: 40px;
+    }
+    .right-button a.attivita {
+        display: flex;
+        margin-top: 10px;
+        right: 5px;
+        top: 40px;
+    }
+    p {
+        margin-left: 10px;
+    }
+}
+
+/*---------------------------------------------*/
+
+.mainmenu-area ul.mainmenu {
+    text-align: center;
+    float: left;
+    display: block;
+    margin-left: 0;
+}
+
+.navbar-nav {
+    margin: 7.5px -15px;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-collapse {
+    width: auto;
+    height: auto;
+    float: left;
+    display: flex;
+    margin: 0;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.mainmenu-area ul.mainmenu li {
+    float: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Content ]*/
+
+.content-container {
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(to top, #000428, #004e92); /*#f2f2f2; */
+}
+

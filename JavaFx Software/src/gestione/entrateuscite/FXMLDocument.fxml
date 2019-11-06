@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1270.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestione.entrateuscite.FXMLDocumentController">
+   <center>
+      <AnchorPane prefHeight="720.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTabPane fx:id="TabPane" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#cambia_IMG_tab" prefHeight="720.0" prefWidth="1280.0" rotateGraphic="true" side="LEFT" stylesheets="@../resources/style.css">
+               <tabs>
+                  <Tab closable="false" disable="true" style="-fx-pref-width: 35;" />
+                  <Tab closable="false" disable="true" style="-fx-pref-width: 165;">
+                     <graphic>
+                        <Pane maxHeight="124.0" maxWidth="195.0" minHeight="165.0" minWidth="195.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="124.0" prefWidth="195.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+                                 <image>
+                                    <Image url="@../Icons/User_Icon_Default.png" />
+                                 </image>
+                              </ImageView>
+                              <AnchorPane prefHeight="60.0" prefWidth="200.0" translateY="105.0">
+                                 <children>
+                                    <JFXButton fx:id="Login_Btn" contentDisplay="GRAPHIC_ONLY" defaultButton="true" graphicTextGap="0.0" maxHeight="20.0" maxWidth="80.0" minHeight="20.0" minWidth="80.0" onMouseClicked="#Open_LoginScreen" prefHeight="20.0" prefWidth="80.0" styleClass="cursor_on_tab" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="5.0">
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Icons/accedi_btn_icon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <AnchorPane fx:id="User_Logged_Win" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #EBEFF2;" visible="false" AnchorPane.leftAnchor="25.0">
+                                       <children>
+                                          <Label fx:id="ID_Utente_Name" alignment="TOP_CENTER" prefHeight="40.0" prefWidth="120.0" text="Nome Cognome" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                             <font>
+                                                <Font name="Calibri" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#LogoutToDatabase" prefHeight="20.0" prefWidth="20.0" ripplerFill="#ababab" style="-fx-cursor: hand;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                             <graphic>
+                                                <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Icons/logout_icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Tab>
+                  <Tab fx:id="TAB_PanoramicaDati" closable="false" styleClass="cursor_on_tab">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <top>
+                              <HBox maxHeight="-Infinity" prefHeight="50.0" BorderPane.alignment="CENTER" />
+                           </top>
+                           <center>
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="595.0" prefWidth="795.0" BorderPane.alignment="CENTER_RIGHT">
+                                 <children>
+                                    <JFXTreeTableView fx:id="Tabella" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#setSelectedRow" prefHeight="565.0" prefWidth="650.0" sortMode="ONLY_FIRST_LEVEL" stylesheets="@../resources/style_table.css">
+                                       <columns>
+                                          <TreeTableColumn fx:id="TipoMoney" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" sortable="false" />
+                                          <TreeTableColumn fx:id="Tipologia" editable="false" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" resizable="false" sortable="false" text="TIPOLOGIA" />
+                                          <TreeTableColumn fx:id="Descrizione" editable="false" maxWidth="210.0" minWidth="210.0" prefWidth="210.0" resizable="false" sortable="false" style="-fx-padding: 0 15 0 0;" text="DESCRIZIONE" />
+                                          <TreeTableColumn fx:id="Data" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" text="DATA" />
+                                          <TreeTableColumn fx:id="Importo" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" text="IMPORTO" />
+                                          <TreeTableColumn fx:id="Arrows" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" sortable="false" />
+                                       </columns>
+                                       <HBox.margin>
+                                          <Insets left="70.0" top="5.0" />
+                                       </HBox.margin>
+                                    </JFXTreeTableView>
+                                 </children>
+                              </HBox>
+                           </center>
+                           <bottom>
+                              <HBox maxHeight="-Infinity" prefHeight="75.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="1080.0">
+                                       <children>
+                                          <JFXButton fx:id="SaveBtn" defaultButton="true" layoutX="706.0" layoutY="18.0" onMouseClicked="#SaveTableToFile" prefHeight="35.0" prefWidth="150.0" ripplerFill="#03a84d" style="-fx-background-color: linear-gradient(to bottom, rgba(75,198,133,1) 0%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,218,145,1) 4%,rgba(81,218,145,1) 49%,rgba(80,212,142,1) 53%,rgba(80,212,142,1) 89%,rgba(73,210,137,1) 90%,rgba(29,199,108,1) 92%,rgba(19,196,102,1) 93%,rgba(5,193,93,1) 96%,rgba(6,191,94,1) 100%);" text="SALVA SU FILE" textFill="WHITE" AnchorPane.leftAnchor="795.0" AnchorPane.topAnchor="5.0">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXButton>
+                                          <JFXButton fx:id="Btn_resetTable" contentDisplay="RIGHT" disable="true" graphicTextGap="0.0" layoutX="40.0" layoutY="25.0" onMouseClicked="#resetTableContent" ripplerFill="#d7d7d7" style="-fx-padding: 1;" text=" " AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
+                                             <graphic>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <viewport>
+                                                      <Rectangle2D />
+                                                   </viewport>
+                                                   <image>
+                                                      <Image url="@../Icons/EmptyTable-icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXButton>
+                                       </children>
+                                    </AnchorPane>
+                                 </children></HBox>
+                           </bottom>
+                           <right>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="595.0" prefWidth="285.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="60.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="125.0">
+                                             <image>
+                                                <Image url="@../Icons/Tot_Banca.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="Label_BilancioBanca" alignment="CENTER" layoutX="46.0" layoutY="136.0" text="0 €" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="136.0">
+                                             <font>
+                                                <Font name="Segoe UI" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="64.0" layoutY="108.0" prefHeight="24.0" prefWidth="235.0" text="BILANCIO BANCA" textAlignment="CENTER" textFill="#747474" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="95.0">
+                                             <font>
+                                                <Font name="Roboto Condensed" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="60.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="110.0">
+                                             <image>
+                                                <Image url="@../Icons/Tot_Contanti.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="Label_BilancioContanti" alignment="CENTER" layoutX="46.0" layoutY="136.0" text="0 €" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="121.0">
+                                             <font>
+                                                <Font name="Segoe UI" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="42.0" layoutY="108.0" prefHeight="24.0" prefWidth="235.0" text="BILANCIO CONTANTI" textAlignment="CENTER" textFill="#747474" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="80.0">
+                                             <font>
+                                                <Font name="Roboto Condensed" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="60.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="110.0">
+                                             <image>
+                                                <Image url="@../Icons/Tot_Totale.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="Label_BilancioTotale" alignment="CENTER" layoutX="46.0" layoutY="136.0" text="0 €" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="121.0">
+                                             <font>
+                                                <Font name="Segoe UI" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="64.0" layoutY="108.0" prefHeight="24.0" prefWidth="235.0" text="BILANCIO TOTALE" textAlignment="CENTER" textFill="#747474" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="80.0">
+                                             <font>
+                                                <Font name="Roboto Condensed" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children></VBox>
+                           </right>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <Pane prefHeight="75.0" prefWidth="55.0" translateX="-73.0">
+                           <children>
+                              <ImageView fx:id="IMG_PanoramicaDati" fitHeight="75.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/PanoramicaDati_SELECTED.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Tab>
+                  <Tab fx:id="TAB_Grafici" closable="false" styleClass="cursor_on_tab">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <graphic>
+                        <Pane prefHeight="75.0" prefWidth="55.0" translateX="-73.0">
+                           <children>
+                              <ImageView fx:id="IMG_Grafici" fitHeight="75.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/Grafici_DEFAULT.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Tab>
+                  <Tab fx:id="TAB_AggiungiDati" closable="false" styleClass="cursor_on_tab">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <AnchorPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <ImageView fitHeight="720.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/lineSeparator4.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></AnchorPane>
+                           </center>
+                           <left>
+                              <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="480.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane prefHeight="480.0" prefWidth="420.0" AnchorPane.leftAnchor="47.5" AnchorPane.topAnchor="70.0">
+                                       <children>
+                                          <Label fx:id="DataErrorLabel" layoutX="23.0" layoutY="269.0" text="Seleziona una data" textFill="RED" visible="false" AnchorPane.leftAnchor="20.0" />
+                                          <Text layoutX="58.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPOLOGIA" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <JFXComboBox fx:id="Tipologia_CBox" labelFloat="true" layoutX="20.0" layoutY="36.0" onHidden="#setTipoBilancio" prefWidth="200.0" promptText="Seleziona la tipologia" visibleRowCount="7" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0">
+                                             <focusColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2857142857142857" startY="0.40476190476190477">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5173203776118811" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </focusColor>
+                                          </JFXComboBox>
+                                          <JFXComboBox fx:id="TipoMoney_CBox" labelFloat="true" layoutX="210.0" layoutY="30.0" onHidden="#onSelectedTipoBilancio" prefWidth="160.0" promptText="Seleziona tipo bilancio" visibleRowCount="2" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="45.0">
+                                             <focusColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2857142857142857" startY="0.40476190476190477">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5173203776118811" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </focusColor>
+                                          </JFXComboBox>
+                                          <Text layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIZIONE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="95.0">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <JFXTextArea fx:id="Descrizione_TextArea" layoutX="8.0" layoutY="148.0" maxWidth="380.0" onKeyTyped="#onDescChanged" prefHeight="100.0" promptText="Inserisci una descrizione" style="-fx-background-color: #fbfbfb;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
+                                             <focusColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5021132045661018" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </focusColor>
+                                          </JFXTextArea>
+                                          <Text layoutX="14.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="245.0">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <JFXDatePicker fx:id="Data_DPicker" editable="false" layoutX="14.0" layoutY="259.0" onAction="#onCalendarShowing" promptText="Seleziona una data" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="265.0">
+                                             <defaultColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5021132045661018" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </defaultColor>
+                                          </JFXDatePicker>
+                                          <Text layoutX="21.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPORTO" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="315.0">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <JFXTextField fx:id="Importo_Int" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="331.0" onKeyReleased="#onNumChanged_Int" prefWidth="55.0" promptText="0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="335.0">
+                                             <focusColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5021132045661018" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </focusColor>
+                                          </JFXTextField>
+                                          <Text layoutX="76.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="," AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="345.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <JFXTextField fx:id="Importo_Cent" layoutX="24.0" layoutY="341.0" onKeyReleased="#onNumChanged_Cent" prefWidth="20.0" promptText="00" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="335.0">
+                                             <focusColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5021132045661018" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </focusColor>
+                                          </JFXTextField>
+                                          <Text layoutX="86.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="335.0">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <JFXButton fx:id="AddBtn" defaultButton="true" onMouseClicked="#AddElementTable" prefHeight="40.0" prefWidth="300.0" ripplerFill="#03a84d" style="-fx-background-color: linear-gradient(to bottom, rgba(75,198,133,1) 0%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,218,145,1) 4%,rgba(81,218,145,1) 49%,rgba(80,212,142,1) 53%,rgba(80,212,142,1) 89%,rgba(73,210,137,1) 90%,rgba(29,199,108,1) 92%,rgba(19,196,102,1) 93%,rgba(5,193,93,1) 96%,rgba(6,191,94,1) 100%);" text="AGGIUNGI" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="107.5">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                    <Label layoutX="192.0" layoutY="33.0" styleClass="addFontMoon" text="INSERISCI DATI" textFill="#0095ff" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="25.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </left>
+                           <right>
+                              <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane prefHeight="300.0" prefWidth="480.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="70.0">
+                                       <children>
+                                          <JFXTextField fx:id="FileExcelPath" labelFloat="true" prefWidth="400.0" promptText="Seleziona file excel" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="45.0">
+                                             <focusColor>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                                                   <stops>
+                                                      <Stop color="#00b2ff" />
+                                                      <Stop color="#018ed0" offset="0.5021132045661018" />
+                                                      <Stop color="#0067bc" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </focusColor>
+                                          </JFXTextField>
+                                          <JFXButton fx:id="ChooseFileBtn" graphicTextGap="0.0" layoutX="452.0" layoutY="33.0" onMouseClicked="#OpenFileChooser" style="-fx-padding: 0 0 0 5;" text=" " AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="50.0">
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Icons/FileExplorer_icon.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXProgressBar fx:id="ProgressBar" layoutX="152.0" layoutY="158.0" prefHeight="3.0" prefWidth="250.0" progress="0.0" AnchorPane.leftAnchor="100.0" />
+                                          <Pane fx:id="PBCompletedText" layoutX="139.0" layoutY="175.0" prefHeight="50.0" visible="false" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="165.0">
+                                             <children>
+                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Icons/icon-ok.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="56.0" layoutY="17.0" text="OPERAZIONE COMPLETATA">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="PBErrorText" prefHeight="50.0" visible="false" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="165.0">
+                                             <children>
+                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Icons/icon-error.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="56.0" layoutY="17.0" text="ERRORE. . . FILE NON VALIDO">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <Label styleClass="addFontMoon" text="IMPORTA DATI" textFill="#0095ff" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="25.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton fx:id="ImportBtn" defaultButton="true" onMouseClicked="#ImportElementTable" prefHeight="40.0" prefWidth="300.0" ripplerFill="#03a84d" style="-fx-background-color: linear-gradient(to bottom, rgba(75,198,133,1) 0%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,218,145,1) 4%,rgba(81,218,145,1) 49%,rgba(80,212,142,1) 53%,rgba(80,212,142,1) 89%,rgba(73,210,137,1) 90%,rgba(29,199,108,1) 92%,rgba(19,196,102,1) 93%,rgba(5,193,93,1) 96%,rgba(6,191,94,1) 100%);" text="IMPORTA" textFill="WHITE" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="107.5">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                 </children></AnchorPane>
+                           </right></BorderPane>
+                     </content>
+                     <graphic>
+                        <Pane prefHeight="75.0" prefWidth="200.0" translateX="-73.0">
+                           <children>
+                              <ImageView fx:id="IMG_AggiungiDati" fitHeight="75.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/AggiungiDati_DEFAULT.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Tab>
+                  <Tab closable="false" disable="true" style="-fx-pref-width: 255;" />
+                  <!--<Tab closable="false" style="-fx-pref-width: 33;">
+                     <graphic>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="50.0" translateX="-75.0">
+                           <children>
+                              <Button alignment="TOP_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onMouseClicked="#JustDoIt" prefHeight="20.0" prefWidth="20.0" styleClass="cursor_on_tab" stylesheets="@../resources/style_info_icon.css">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/help_icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Tab>-->
+               </tabs>
+            </JFXTabPane>
+            <Pane fx:id="BlackPane" opacity="0.05" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" visible="false" />
+            <AnchorPane fx:id="PanelModifica" prefHeight="720.0" prefWidth="1280.0" visible="false" AnchorPane.leftAnchor="0.0" />
+            <AnchorPane fx:id="PanelAccedi" prefHeight="720.0" prefWidth="1280.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane opacity="0.05" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" />
+                  <AnchorPane prefHeight="400.0" prefWidth="455.0" style="-fx-background-color: white; -fx-background-radius: 5 5 5 5;" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="160.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Pane prefHeight="10.0" prefWidth="455.0" style="-fx-background-color: #00b3ff; -fx-background-radius: 5 5 0 0;" AnchorPane.topAnchor="0.0" />
+                        <JFXPasswordField fx:id="Password_Field" labelFloat="true" layoutX="172.0" layoutY="181.0" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#setDefaultStyle_password" prefWidth="300.0" promptText="Password" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="180.0">
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.2571428571428571" startY="0.4142857142857143">
+                                 <stops>
+                                    <Stop color="#00b2ff" />
+                                    <Stop color="#018ed0" offset="0.5067346052059877" />
+                                    <Stop color="#0067bc" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
+                        </JFXPasswordField>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="180.0">
+                           <image>
+                              <Image url="@../Icons/key_icon.png" />
+                           </image>
+                        </ImageView>
+                        <JFXTextField fx:id="Email_Field" labelFloat="true" layoutX="172.0" layoutY="111.0" onKeyTyped="#setDefaultStyle_email" prefWidth="300.0" promptText="Email" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.29047619047619044" startY="0.4666666666666667">
+                                 <stops>
+                                    <Stop color="#00b2ff" />
+                                    <Stop color="#018ed0" offset="0.4932653947940119" />
+                                    <Stop color="#0067bc" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
+                        </JFXTextField>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="98.0">
+                           <image>
+                              <Image url="@../Icons/user_icon3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="-85.0">
+                           <image>
+                              <Image url="@../Icons/sw-icon.png" />
+                           </image>
+                        </ImageView>
+                        <JFXButton defaultButton="true" layoutX="85.0" layoutY="323.0" onMouseClicked="#LoginToDatabase" prefHeight="40.0" prefWidth="300.0" ripplerFill="#0565ae" style="-fx-background-color: linear-gradient(to bottom, rgba(0,179,255,1) 0%, rgba(0,179,255,1) 50%, rgba(14,166,237,1) 52%, rgba(14,166,237,1) 89%, rgba(16,130,224,1) 93%, rgba(16,130,224,1) 100%); -fx-cursor: hand;" text="LOGIN" textFill="WHITE" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="310.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="24.0" layoutY="320.0" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" onMouseClicked="#Close_LoginScreen" prefHeight="32.0" prefWidth="32.0" ripplerFill="#686868" style="-fx-cursor: hand;" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="314.0">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/BackArrow_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="105.0" layoutY="350.0" text="Non hai un account?" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="105.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label onMouseClicked="#OpenWebpageRegister" text="Registrati" textFill="#00b3ff" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="229.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

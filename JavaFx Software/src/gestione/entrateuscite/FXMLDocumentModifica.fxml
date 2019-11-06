@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestione.entrateuscite.FXMLDocumentModificaController">
+   <effect>
+      <DropShadow color="#000000b4" />
+   </effect>
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 5 5 5 5;" translateX="385.0" translateY="55.0">
+         <children>
+            <JFXButton defaultButton="true" onMouseClicked="#ConfirmModifica" prefHeight="40.0" prefWidth="200.0" ripplerFill="#03a84d" style="-fx-background-color: linear-gradient(to bottom, rgba(75,198,133,1) 0%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,216,144,1) 1%,rgba(81,218,145,1) 4%,rgba(81,218,145,1) 49%,rgba(80,212,142,1) 53%,rgba(80,212,142,1) 89%,rgba(73,210,137,1) 90%,rgba(29,199,108,1) 92%,rgba(19,196,102,1) 93%,rgba(5,193,93,1) 96%,rgba(6,191,94,1) 100%);" text="OK" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="AnnullaBtn" cancelButton="true" onMouseClicked="#CancelModifica" prefHeight="40.0" prefWidth="200.0" ripplerFill="#a60303" style="-fx-background-color: linear-gradient(to bottom, rgba(223,52,58,1) 0%, rgba(242,54,60,1) 1%, rgba(242,54,60,1) 1%, rgba(242,54,60,1) 1%, rgba(246,55,62,1) 4%, rgba(246,55,62,1) 49%, rgba(239,52,58,1) 53%, rgba(239,52,58,1) 89%, rgba(237,44,50,1) 90%, rgba(230,0,8,1) 92%, rgba(214,0,7,1) 93%, rgba(199,0,7,1) 96%, rgba(199,0,3,1) 100%);" text="ANNULLA" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <AnchorPane prefHeight="480.0" prefWidth="420.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text layoutX="58.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPOLOGIA" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <JFXComboBox fx:id="Tipologia_CBox" labelFloat="true" layoutX="20.0" layoutY="36.0" onHidden="#setTipoBilancio" prefWidth="200.0" promptText="Seleziona la tipologia" visibleRowCount="7" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="95.0">
+                     <focusColor>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2857142857142857" startY="0.40476190476190477">
+                           <stops>
+                              <Stop color="#00b2ff" />
+                              <Stop color="#018ed0" offset="0.5173203776118811" />
+                              <Stop color="#0067bc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </focusColor>
+                  </JFXComboBox>
+                  <JFXComboBox fx:id="TipoMoney_CBox" labelFloat="true" layoutX="210.0" layoutY="30.0" onHidden="#onSelectedTipoBilancio" prefWidth="160.0" promptText="Seleziona tipo bilancio" visibleRowCount="2" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="95.0">
+                     <focusColor>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2857142857142857" startY="0.40476190476190477">
+                           <stops>
+                              <Stop color="#00b2ff" />
+                              <Stop color="#018ed0" offset="0.5173203776118811" />
+                              <Stop color="#0067bc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </focusColor>
+                  </JFXComboBox>
+                  <Text layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIZIONE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="145.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <JFXTextArea fx:id="Descrizione_TextArea" layoutX="8.0" layoutY="148.0" maxWidth="380.0" prefHeight="100.0" promptText="Inserisci una descrizione" style="-fx-background-color: #fbfbfb;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="170.0">
+                     <focusColor>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                           <stops>
+                              <Stop color="#00b2ff" />
+                              <Stop color="#018ed0" offset="0.5021132045661018" />
+                              <Stop color="#0067bc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </focusColor>
+                  </JFXTextArea>
+                  <Text layoutX="14.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="295.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <JFXDatePicker fx:id="Data_DPicker" editable="false" layoutX="14.0" layoutY="259.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="315.0">
+                     <defaultColor>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                           <stops>
+                              <Stop color="#00b2ff" />
+                              <Stop color="#018ed0" offset="0.5021132045661018" />
+                              <Stop color="#0067bc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </defaultColor>
+                  </JFXDatePicker>
+                  <Text layoutX="21.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPORTO" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="365.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="Importo_Int" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="331.0" onKeyReleased="#onNumChanged_Int" prefWidth="55.0" promptText="0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="385.0">
+                     <focusColor>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                           <stops>
+                              <Stop color="#00b2ff" />
+                              <Stop color="#018ed0" offset="0.5021132045661018" />
+                              <Stop color="#0067bc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </focusColor>
+                  </JFXTextField>
+                  <Text layoutX="76.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="," AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="395.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="Importo_Cent" layoutX="24.0" layoutY="341.0" onKeyReleased="#onNumChanged_Cent" prefWidth="20.0" promptText="00" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="385.0">
+                     <focusColor>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2428571428571428" startY="0.48095238095238096">
+                           <stops>
+                              <Stop color="#00b2ff" />
+                              <Stop color="#018ed0" offset="0.5021132045661018" />
+                              <Stop color="#0067bc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </focusColor>
+                  </JFXTextField>
+                  <Text layoutX="86.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="385.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Pane layoutX="-71.0" layoutY="-86.0" prefHeight="10.0" prefWidth="500.0" style="-fx-background-color: #FFC600; -fx-background-radius: 5 5 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" visible="false" />
+   </children>
+</AnchorPane>

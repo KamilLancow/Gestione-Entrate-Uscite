@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="382.0" layoutY="73.0" prefHeight="400.0" prefWidth="455.0" style="-fx-background-color: white; -fx-background-radius: 5 5 5 5;" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="160.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Pane prefHeight="10.0" prefWidth="455.0" style="-fx-background-color: #00b3ff; -fx-background-radius: 5 5 0 0;" AnchorPane.topAnchor="0.0" />
+            <JFXPasswordField labelFloat="true" layoutX="172.0" layoutY="181.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="300.0" promptText="Password" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="180.0">
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.2571428571428571" startY="0.4142857142857143">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="#018ed0" offset="0.5067346052059877" />
+                        <Stop color="#0067bc" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+            </JFXPasswordField>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="180.0">
+               <image>
+                  <Image url="@../Icons/key_icon.png" />
+               </image>
+            </ImageView>
+            <JFXTextField labelFloat="true" layoutX="172.0" layoutY="111.0" prefWidth="300.0" promptText="Email" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.29047619047619044" startY="0.4666666666666667">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="#018ed0" offset="0.4932653947940119" />
+                        <Stop color="#0067bc" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+            </JFXTextField>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="98.0">
+               <image>
+                  <Image url="@../Icons/user_icon3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="-85.0">
+               <image>
+                  <Image url="@../Icons/sw-icon.png" />
+               </image>
+            </ImageView>
+            <JFXButton defaultButton="true" layoutX="85.0" layoutY="323.0" onMouseClicked="#ConfirmModifica" prefHeight="40.0" prefWidth="300.0" ripplerFill="#0565ae" style="-fx-background-color: linear-gradient(to bottom, rgba(0,179,255,1) 0%, rgba(0,179,255,1) 50%, rgba(14,166,237,1) 52%, rgba(14,166,237,1) 89%, rgba(16,130,224,1) 93%, rgba(16,130,224,1) 100%);" text="LOGIN" textFill="WHITE" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="24.0" layoutY="320.0" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" prefHeight="32.0" prefWidth="32.0" ripplerFill="#686868" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="324.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/BackArrow_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

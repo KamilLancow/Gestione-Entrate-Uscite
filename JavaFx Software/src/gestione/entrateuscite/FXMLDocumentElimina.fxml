@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestione.entrateuscite.FXMLDocumentEliminaController">
+   <effect>
+      <DropShadow color="#000000b4" />
+   </effect>
+   <children>
+      <AnchorPane layoutX="5.0" layoutY="168.0" prefHeight="210.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 5 5 5 5;" translateX="385.0" translateY="55.0">
+         <children>
+            <JFXButton defaultButton="true" focusTraversable="false" onMouseClicked="#CancelElimina" prefHeight="40.0" prefWidth="200.0" ripplerFill="#9a9a9a" style="-fx-background-color: white; -fx-border-width: 2; -fx-border-color: #7c7c7c; -fx-border-radius: 3;" text="ANNULLA" textFill="#7c7c7c" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton cancelButton="true" onMouseClicked="#ConfirmElimina" prefHeight="40.0" prefWidth="200.0" ripplerFill="#a60303" style="-fx-background-color: linear-gradient(to bottom, rgba(223,52,58,1) 0%, rgba(242,54,60,1) 1%, rgba(242,54,60,1) 1%, rgba(242,54,60,1) 1%, rgba(246,55,62,1) 4%, rgba(246,55,62,1) 49%, rgba(239,52,58,1) 53%, rgba(239,52,58,1) 89%, rgba(237,44,50,1) 90%, rgba(230,0,8,1) 92%, rgba(214,0,7,1) 93%, rgba(199,0,7,1) 96%, rgba(199,0,3,1) 100%);" text="ELIMINA" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <AnchorPane prefHeight="120.0" style="-fx-background-color: #c70007; -fx-background-radius: 5 5 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="BigTitle" alignment="CENTER" layoutX="74.0" layoutY="26.0" prefWidth="500.0" text="Sei sicuro di eliminare la riga selezionata?" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LilTitle" alignment="CENTER" layoutX="24.0" layoutY="65.0" prefWidth="500.0" text="Una volta eliminata non sarà più possibile recuperare le informazioni" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" visible="false" />
+   </children>
+</AnchorPane>

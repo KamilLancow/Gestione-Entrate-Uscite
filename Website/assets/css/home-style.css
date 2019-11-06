@@ -1,0 +1,94 @@
+/*-----------------------------------------------------------------------------------
+Template Name: Appy HTML5 Template,
+Template URI: http://www.themectg.com
+Description: This is html5 template
+Author: Ashekur Rahman Hridoy
+Author URI: http://www.facebook.com/ashekur.rahman.hridoy
+Version: 1.0
+-----------------------------------------------------------------------------------
+CSS INDEX
+===================
+1. Google font
+2. Theme Default CSS
+3. Button-Style
+4. Helper-Classes
+5. MainMenu-Area
+6. Page-Title
+7. Home-Area
+8. Progress-Area
+9. Video-Area
+10. Feature-Area
+11. Service-Box
+12. Testimonial-Area
+13. Gallery-Area
+14. Download-Area
+15. Price-Area
+16. Questions-area
+17. Subscribe-Form
+18. Footer-Area
+19. ScrollUp-Button
+20. Blog-Post
+21. Pagination
+22. Comment-Respond
+23. Form-Stype
+-----------------------------------------------------------------------------------*/
+
+/*-----------------
+1. Google font
+------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800');
+
+/*-------------------
+2. Theme Default CSS
+--------------------*/
+
+* {
+    outline: none;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: #8790af;
+}
+
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+
+
+/*-- 3. Button-Style --*/
+
+.bttn-white img {
+    height: 20px;
+    margin-right: 5px;
+    margin-top: -5px;
+    display: inline-block;
+}
+
+.bttn-white.active,
+.bttn-white:hover {
+    color: #ffffff;
+}
+
+.bttn-white.active:before,
+.bttn-white:hover:before {
+    opacity: 0;
+}
+
+.bttn-default .lnr,
+.bttn-white .lnr {
+    margin-right: 10px;
+}
+
+.bttn-default:hover {
+    color: #ffffff;
+    -webkit-box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.6);
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}

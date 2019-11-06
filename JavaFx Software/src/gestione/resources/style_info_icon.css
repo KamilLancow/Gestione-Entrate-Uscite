@@ -1,0 +1,15 @@
+/* 
+    Created on : 28-dic-2018, 12.29.18
+    Author     : Kamil
+*/
+.button{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-style: none;
+    -fx-background-radius: 100;
+}
+
+.button:pressed {
+    -fx-background-color: #F4F8FB;
+}
