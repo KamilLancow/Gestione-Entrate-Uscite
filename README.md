@@ -11,3 +11,4 @@ Financial management software for a hotel and restaurant.
 
 •	Built this project using Java, MySQL, HTML, CSS, JavaScript, PHP and Bootstrap.
 #
+Note: The project is still uncomplete.
