@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Lug 09, 2019 alle 17:23
--- Versione del server: 8.0.13-4
--- Versione PHP: 7.2.19-0ubuntu0.18.04.1
+-- Czas generowania: 12 Lis 2019, 11:02
+-- Wersja serwera: 8.0.13-4
+-- Wersja PHP: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `FBwGjmCbpP`
+-- Baza danych: `FBwGjmCbpP`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `dati`
+-- Struktura tabeli dla tabeli `dati`
 --
 
 CREATE TABLE `dati` (
@@ -39,7 +39,7 @@ CREATE TABLE `dati` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `dati`
+-- Zrzut danych tabeli `dati`
 --
 
 INSERT INTO `dati` (`tipo`, `tipo_bilancio`, `descrizione`, `data`, `importo`, `ID_utente`, `ID_dati`) VALUES
@@ -69,58 +69,59 @@ INSERT INTO `dati` (`tipo`, `tipo_bilancio`, `descrizione`, `data`, `importo`, `
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `utenti`
+-- Struktura tabeli dla tabeli `utenti`
 --
 
 CREATE TABLE `utenti` (
   `nome` varchar(20) NOT NULL,
   `cognome` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  `num_accessi` smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `utenti`
+-- Zrzut danych tabeli `utenti`
 --
 
-INSERT INTO `utenti` (`nome`, `cognome`, `email`, `password`) VALUES
-('Pinco', 'Pallino', 'pinco.pallino@email.com', 'ciao1234'),
-('Kamil', 'Lancow', 'email@email.com', 'ciao1234'),
-('Mario', 'Rossi', 'mario.rossi@email.com', 'ciao1234');
+INSERT INTO `utenti` (`nome`, `cognome`, `email`, `password`, `num_accessi`) VALUES
+('Kamil', 'Lancow', 'email@email.com', 'ciao1234', 0),
+('Mario', 'Rossi', 'mario.rossi@email.com', 'ciao1234', 2),
+('Pinco', 'Pallino', 'pinco.pallino@email.com', 'ciao1234', 1);
 
 --
--- Indici per le tabelle scaricate
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indici per le tabelle `dati`
+-- Indeksy dla tabeli `dati`
 --
 ALTER TABLE `dati`
   ADD PRIMARY KEY (`ID_dati`),
   ADD KEY `ID_utente` (`ID_utente`);
 
 --
--- Indici per le tabelle `utenti`
+-- Indeksy dla tabeli `utenti`
 --
 ALTER TABLE `utenti`
   ADD PRIMARY KEY (`email`);
 
 --
--- AUTO_INCREMENT per le tabelle scaricate
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT per la tabella `dati`
+-- AUTO_INCREMENT dla tabeli `dati`
 --
 ALTER TABLE `dati`
   MODIFY `ID_dati` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- Limiti per le tabelle scaricate
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Limiti per la tabella `dati`
+-- Ograniczenia dla tabeli `dati`
 --
 ALTER TABLE `dati`
   ADD CONSTRAINT `dati_ibfk_1` FOREIGN KEY (`ID_utente`) REFERENCES `utenti` (`email`);
