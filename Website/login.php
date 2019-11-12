@@ -11,13 +11,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_POST['email'];
     $passw = $_POST['password'];
-    $sql = "SELECT null FROM utenti WHERE email ='". $email. "' AND password = '". $passw. "'";
+	$sql = "SELECT null FROM utenti WHERE email ='". $email. "' AND password = '". $passw. "'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
-        //session_register("email"); //deprecated function
-        $_SESSION['login_user_email'] = $email;
-        header("Location: management.php");
+		$sql = "UPDATE utenti SET num_accessi =num_accessi + 1 WHERE email ='". $email. "' AND password = '". $passw. "'";
+		if (mysqli_query($conn, $sql)) {
+			$_SESSION['login_user_email'] = $email;
+        	header("Location: management.php");
+		} else {
+			echo "Error updating record: " . mysqli_error($conn);
+		}
     } else {
         $isError = true;
         $error = "Email o Password inserita errata.";
@@ -29,8 +33,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
 <head>
-	<title>Gestione Entrate-Uscite - Login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gestione Entrate-Uscite - Login</title>
 <!--===============================================================================================-->
 	<link rel="shortcut icon" type="image/png" href="assets/images/icons/lit-icon.ico"/>
 <!--===============================================================================================-->
