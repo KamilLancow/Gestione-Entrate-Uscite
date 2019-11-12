@@ -676,19 +676,29 @@ public class FXMLDocumentController implements Initializable {
         // controlla se user esiste
         User_nome = "";
         User_cognome = "";
+        int num_accessi = 0;
         Connection con = getConnectionToDB();
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT `nome`, `cognome` FROM `"+ DBname +"`.`utenti` WHERE `email` ='" + Email_Field.getText() + "' AND `password` = '" + Password_Field.getText() + "'");
+            ResultSet rs = st.executeQuery("SELECT `nome`, `cognome`, `num_accessi` FROM `"+ DBname +"`.`utenti` WHERE `email` ='" + Email_Field.getText() + "' AND `password` = '" + Password_Field.getText() + "'");
             while(rs.next()){
                 User_nome = rs.getString("nome");
                 User_cognome = rs.getString("cognome");
+                num_accessi = rs.getInt("num_accessi") + 1;
             }
             con.close();
         } catch(Exception e){ e.printStackTrace(); }
         
         // se i dati login SONO corretti
         if(!User_nome.concat(User_cognome).equals("")){
+            con = getConnectionToDB();
+            PreparedStatement p;
+            try{
+                p=con.prepareStatement("UPDATE `" + DBname + "`.`utenti` SET `num_accessi`=?" + " WHERE `email`='" + Email_Field.getText() + "' AND `password` = '" + Password_Field.getText() + "'");
+                p.setInt(1, num_accessi);
+                p.executeUpdate();
+                con.close();
+            }catch(Exception e) { System.out.println(e);}
             ID_Utente = Email_Field.getText();
             // se la tabella SW e' vuota: fai partire sinc col DB & display user info
             if(ListDatiObj.isEmpty()){
