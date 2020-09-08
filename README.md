@@ -1,5 +1,10 @@
 # Gestione-Entrate-Uscite
-Financial management software for a hotel and restaurant.
+## Financial management software for a hotel and restaurant.
+
+<h2 align="center">
+  <img src="https://github.com/KamilLancow/website-portfolio/blob/master/src/assets/project3.jpg" alt="gestione-entrate-uscite" width="600px" />
+  <br>
+</h2>
 
 •	Manages the earnings and expenses of the hotel
 
@@ -10,5 +15,19 @@ Financial management software for a hotel and restaurant.
 •	Visualize graphically the data.
 
 •	Built this project using Java, MySQL, HTML, CSS, JavaScript, PHP and Bootstrap.
-#
-Note: The project is still uncomplete.
+
+---
+
+<h2 align="center">
+  <img src="https://github.com/KamilLancow/Gestione-Entrate-Uscite/blob/master/readme%20images/ui1.png" alt="gestione-entrate-uscite" width="600px" />
+  <br>
+</h2>
+
+<h2 align="center">
+  <img src="https://github.com/KamilLancow/Gestione-Entrate-Uscite/blob/master/readme%20images/excel.png" alt="gestione-entrate-uscite" width="600px" />
+  <br>
+</h2>
+
+---
+
+Note: Some features in this project are not completed.
